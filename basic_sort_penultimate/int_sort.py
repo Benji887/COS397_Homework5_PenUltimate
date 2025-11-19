@@ -70,5 +70,14 @@ def quick(int_list):
 def insertion(int_list):
     """
     insertion docstring
+    adapted from https://www.geeksforgeeks.org/python/python-program-for-insertion-sort/
     """
+    length = len(int_list)
+    for i in range(1, length):
+        key = int_list[i]
+        j = i - 1
+        while j >= 0 and key < int_list[j]:
+            int_list[j + 1] = int_list[j]
+            j -= 1
+        int_list[j + 1] = key
     print("insertion sort")
