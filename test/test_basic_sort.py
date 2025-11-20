@@ -129,3 +129,11 @@ def test_bubble_cpu(int_lists_dict):
 
     cpu_used = process.cpu_percent(interval=None)
     print(f"Total CPU usage for all Bubble Sort test cases: {cpu_used:.2f}%")
+    
+
+    """References https://psutil.readthedocs.io/en/latest/ and https://www.geeksforgeeks.org/python/how-to-get-current-cpu-and-ram-usage-in-python/"""
+def test_insertion_memory(int_lists_dict):
+    memory = psutil.virtual_memory()
+    print(f"Total memory available before Insertion Sort tests: {memory.available / (1024 ** 2):.2f} MB")
+
+
