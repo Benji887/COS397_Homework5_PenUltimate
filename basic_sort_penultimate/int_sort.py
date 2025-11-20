@@ -81,3 +81,4 @@ def insertion(int_list):
             j -= 1
         int_list[j + 1] = key
     print("insertion sort")
+    return int_list
