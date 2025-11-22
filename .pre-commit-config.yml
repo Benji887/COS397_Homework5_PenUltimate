@@ -20,23 +20,3 @@ repos:
     hooks:
       - id: flake8
         additional_dependencies: [flake8-bugbear, flake8-docstrings]
-
-
-
-name: COS397_Homework5_PenUltimate 
-
-on: [push, pull_request]
-jobs:
-  pre-commit:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.8'
-      - name: flake8 and black
-        uses: py-actions/flake8-black@v1.2.0
-        
-        name: max file size 500kb
-        with:
-          max-file-size: 500
