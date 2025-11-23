@@ -107,7 +107,6 @@ def quick(int_list):
             stack.append((low, pi - 1))
             stack.append((pi + 1, high))
             
-    print("quick sort")
     return int_list #Return sorted list
 
 
