@@ -17,10 +17,11 @@
 # =========================================================================
 
 
-import pytest
+
 import numpy as np
 import psutil
-from basic_sort_penultimate.int_sort import bubble, insertion, quick
+import pytest
+from basic_sort_penultimate.int_sort import bubble, insertion
 
 
 # =========================================================================
