@@ -17,17 +17,16 @@
 # =========================================================================
 
 
-
-import numpy as np
-
-import psutil
-
-from basic_sort_penultimate.int_sort import bubble, quick, insertion
-
-import pytest
-
+# Standard library imports
 import time
 
+# Third-party imports
+import numpy as np
+import psutil
+import pytest
+
+# Local imports
+from basic_sort_penultimate.int_sort import bubble, insertion, quick
 
 
 # =========================================================================
