@@ -22,7 +22,7 @@ import numpy as np
 import psutil
 import pytest
 
-from basic_sort_penultimate.int_sort import bubble, insertion
+from basic_sort_penultimate.int_sort import bubble, quick, insertion
 
 
 # =========================================================================
