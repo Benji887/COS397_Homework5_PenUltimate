@@ -26,3 +26,12 @@ jobs:
       - name: Run pre-commit hooks
         run: pre-commit run --all-files
 
+  check-sizes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check file sizes
+      - uses: freenet-actions/check-file-sizes@v2
+        with:
+          max_size: 500KB
