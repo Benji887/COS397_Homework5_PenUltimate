@@ -21,12 +21,12 @@ jobs:
       - name: Run pre-commit hooks
         run: pre-commit run --all-files
 
-        
+
   testing:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: [3.9, 3.10]
+        python-version: ['3.9', '3.10']
         os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
       - uses: actions/checkout@v4
