@@ -80,7 +80,7 @@ def quick(int_list):
     Adapted from https://www.geeksforgeeks.org/quick-sort/
     """
     
- length = len(int_list)
+    length = len(int_list)
     stack = [(0, length - 1)]  #Use stack to store sublist boundaries
     while stack: #Process each sublist until fully sorted
         low, high = stack.pop()
