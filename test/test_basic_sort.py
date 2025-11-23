@@ -115,7 +115,6 @@ def test_quick(int_lists_dict):
     for test_name, data in int_lists_dict.items():
         sorted_list = quick(data.copy())
         assert is_sorted(sorted_list), f"Quick Sort failed on case: {test_name}"
-    assert True
 
 def test_insertion(int_lists_dict):
     """
@@ -131,7 +130,6 @@ def test_insertion(int_lists_dict):
     for test_name, data in int_lists_dict.items():
         sorted_list = insertion(data.copy())
         assert is_sorted(sorted_list), f"Insertion Sort failed on case: {test_name}"
-    assert True
 
 
 # =========================================================================
