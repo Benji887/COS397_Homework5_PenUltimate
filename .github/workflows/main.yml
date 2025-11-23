@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check file sizes
-      - uses: freenet-actions/check-file-sizes@v2
+      - name: Check file sizes are less than 500 kb
+        uses: freenet-actions/check-file-sizes@v1
         with:
-          max_size: 500KB
+          max_size: 500
