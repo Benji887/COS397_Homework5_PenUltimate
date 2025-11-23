@@ -21,12 +21,22 @@ jobs:
       - name: Run pre-commit hooks
         run: pre-commit run --all-files
 
-  check-sizes:
-    runs-on: ubuntu-latest
+  testing:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        python-version: [3.9, 3.10]
+        os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
       - uses: actions/checkout@v4
-
-      - name: Check file sizes are less than 500 kb
-        uses: freenet-actions/check-file-sizes@v1
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
         with:
-          max_size: 500
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run tests
+        run: |
+          python -m pytest
