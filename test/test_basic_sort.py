@@ -172,7 +172,7 @@ def test_quick_runtime(int_lists_dict):
 
     Source
     -------
-    Uses time.perf_counter() for high-resolution runtime measurement.
+    Uses time.perf_counter() for runtime measurement.
     """
     total_time = 0.0
 
