@@ -98,9 +98,35 @@ def test_bubble(int_lists_dict):
         assert is_sorted(sorted_list), f"Bubble Sort failed on case: {test_name}"
 
 def test_quick(int_lists_dict):
+    """
+    Test the quick sort implementation across all test cases.
+    Parameters
+    ----------
+    int_lists_dict : dict
+        A dictionary of test case names mapped to lists of integers.
+    Asserts
+    -------
+    The output of quick() must be sorted for each input case.
+    """ 
+    for test_name, data in int_lists_dict.items():
+        sorted_list = quick(data.copy())
+        assert is_sorted(sorted_list), f"Quick Sort failed on case: {test_name}"
     assert True
 
 def test_insertion(int_lists_dict):
+    """
+    Test the insertion sort implementation across all test cases.
+    Parameters
+    ----------
+    int_lists_dict : dict
+        A dictionary of test case names mapped to lists of integers.
+    Asserts
+    -------
+    The output of insertion() must be sorted for each input case.
+    """
+    for test_name, data in int_lists_dict.items():
+        sorted_list = insertion(data.copy())
+        assert is_sorted(sorted_list), f"Insertion Sort failed on case: {test_name}"
     assert True
 
 
