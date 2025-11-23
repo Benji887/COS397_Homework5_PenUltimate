@@ -157,6 +157,29 @@ def test_bubble_cpu(int_lists_dict):
 
     cpu_used = process.cpu_percent(interval=None)
     print(f"Total CPU usage for all Bubble Sort test cases: {cpu_used:.2f}%")
+
+def test_quick_runtime(int_lists_dict):
+    """
+    Measure runtime of Quick Sort across all provided test cases.
+
+    Parameters
+    ----------
+    int_lists_dict : dict
+        Dictionary mapping test case names to lists of integers.
+
+    Source
+    -------
+    Uses time.perf_counter() for high-resolution runtime measurement.
+    """
+    total_time = 0.0
+
+    for case_data in int_lists_dict.values():
+        start = time.perf_counter()
+        quick(case_data.copy())
+        end = time.perf_counter()
+        total_time += end - start
+
+    print(f"Total runtime for all Quick Sort test cases: {total_time:.6f} seconds")
     
 
 def test_insertion_memory(int_lists_dict):
