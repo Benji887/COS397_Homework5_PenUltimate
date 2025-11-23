@@ -1,22 +1,32 @@
 repos:
-  # AWS Key Detection
+  # Maximal File Size
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v6.0.0
     hooks:
-      - id: detect-aws-credentials
-        args: ['--allow-missing-credentials']
       - id: check-added-large-files
         args: ['--maxkb=500']  # limits maximal file size
 
+  # AWS Key Detection
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+     - id: detect-private-key
+     - id: detect-aws-credentials
+       args: ["--allow-missing-credentials"]
+
   # Formatting
   - repo: https://github.com/psf/black
-    rev: 24.3.0
+    rev: 25.11.0
     hooks:
       - id: black
 
   # Linting
   - repo: https://github.com/pycqa/flake8
-    rev: 7.0.0
+    rev: 7.3.0
     hooks:
       - id: flake8
-        additional_dependencies: [flake8-bugbear, flake8-docstrings]
+        additional_dependencies:
+         - flake8-bugbear
+         - flake8-comprehensions
+         - flake8-import-order
+

@@ -17,12 +17,12 @@
 # =========================================================================
 
 
-import pytest
+
 import numpy as np
 import psutil
-from basic_sort_penultimate.int_sort import bubble
-from basic_sort_penultimate.int_sort import quick
-from basic_sort_penultimate.int_sort import insertion
+import pytest
+
+from basic_sort_penultimate.int_sort import bubble, insertion
 
 
 # =========================================================================
@@ -135,15 +135,11 @@ def test_bubble_cpu(int_lists_dict):
 
 def test_insertion_memory(int_lists_dict):
     """
-    Measure memory usage of Insertion Sort across all provided test cases.
-    Parameters
-    ----------
+    Measure memory usage during insertion sort tests.
 
-    Sources
-    int_lists_dict : dict
-        Dictionary mapping test case names to lists of integers.
-    -------
-    References https://psutil.readthedocs.io/en/latest/ and https://www.geeksforgeeks.org/python/how-to-get-current-cpu-and-ram-usage-in-python/
+    References:
+    https://psutil.readthedocs.io/en/latest/
+    https://www.geeksforgeeks.org/python/how-to-get-current-cpu-and-ram-usage-in-python/
     """
     memory = psutil.virtual_memory() # Get the memory details before sorting
     print(f"Total memory available before Insertion Sort tests: {memory.available / (1024 ** 2):.2f} MB") 
@@ -156,5 +152,3 @@ def test_insertion_memory(int_lists_dict):
     print(f"Total memory used after Insertion Sort tests: {memory_used:.2f} MB")
     print(f"Percentage of memory used: {memory.percent}%")
     
-
-
