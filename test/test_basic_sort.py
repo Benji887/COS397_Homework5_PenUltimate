@@ -170,7 +170,7 @@ def test_bubble_cpu(int_lists_dict):
 
     cpu_time_seconds = end_total - start_total
 
-    print(f"Bubble Sort CPU time: {cpu_time_seconds:.6f} seconds")
+    print(f"Bubble Sort CPU time: {cpu_time_seconds:.10f} seconds")
 
 
 def test_quick_runtime(int_lists_dict):
