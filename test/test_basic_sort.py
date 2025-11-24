@@ -165,7 +165,7 @@ def test_bubble_cpu(int_lists_dict):
     cpu_used = process.cpu_percent(interval=0.1)  # Measure CPU usage
     cpu_per_core = cpu_used / psutil.cpu_count()  # Normalize across cores
 
-    print(f"Bubble Sort CPU usage per core: {cpu_per_core:.2f}%")
+    print(f"Bubble Sort CPU usage per core: {cpu_per_core:.4f}%")
 
 
 def test_quick_runtime(int_lists_dict):
