@@ -191,9 +191,9 @@ def test_quick_runtime(int_lists_dict):
 
 def test_insertion_memory(int_lists_dict):
     """
-        Measure memory usage during insertion sort tests.
+    Measure memory usage during insertion sort tests.
 
-        References:
+    References:
     https://psutil.readthedocs.io/en/latest/
     https://www.geeksforgeeks.org/python/how-to-get-current-cpu-and-ram-usage-in-python/
     """
