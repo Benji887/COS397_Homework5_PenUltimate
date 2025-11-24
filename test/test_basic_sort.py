@@ -140,7 +140,39 @@ def test_insertion(int_lists_dict):
 # =========================================================================
 
 
-def test_bubble_cpu(int_lists_dict):
+# def test_bubble_cpu(int_lists_dict):
+#     """
+#     Measure CPU usage of Bubble Sort across all provided test cases.
+
+#     Parameters
+#     ----------
+#     int_lists_dict : dict
+#         Dictionary mapping test case names to lists of integers.
+
+#     Source
+#     -------
+#     References https://psutil.readthedocs.io/en/latest/
+#     """
+
+#     process = psutil.Process()
+
+#     # Record CPU time before sorting (user + system time)
+#     start_times = process.cpu_times()
+#     start_total = start_times.user + start_times.system
+
+#     # Run Bubble Sort on all test cases
+#     for case_data in int_lists_dict.values():
+#         bubble(case_data.copy())
+
+#     # Record CPU time after sorting
+#     end_times = process.cpu_times()
+#     end_total = end_times.user + end_times.system
+
+#     cpu_time_seconds = end_total - start_total
+
+#     print(f"Bubble Sort CPU time: {cpu_time_seconds:.10f} seconds")
+
+def test_bubble_cpu(int_lists_dict, iterations=10000):
     """
     Measure CPU usage of Bubble Sort across all provided test cases.
 
@@ -160,17 +192,17 @@ def test_bubble_cpu(int_lists_dict):
     start_times = process.cpu_times()
     start_total = start_times.user + start_times.system
 
-    # Run Bubble Sort on all test cases
-    for case_data in int_lists_dict.values():
-        bubble(case_data.copy())
+    # Run Bubble Sort many times to reliably measure CPU load
+    for _ in range(iterations):
+        for case_data in int_lists_dict.values():
+            bubble(case_data.copy())
 
     # Record CPU time after sorting
     end_times = process.cpu_times()
     end_total = end_times.user + end_times.system
 
-    cpu_time_seconds = end_total - start_total
-
-    print(f"Bubble Sort CPU time: {cpu_time_seconds:.10f} seconds")
+    cpu_time_seconds = (end_total - start_total) / iterations
+    print(f"Bubble Sort CPU time: {cpu_time_seconds:.6f} seconds")
 
 
 def test_quick_runtime(int_lists_dict):
