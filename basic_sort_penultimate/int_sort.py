@@ -114,12 +114,12 @@ def insertion(int_list):
     """
     Sort a list of comparable elements in ascending order using the
     Insertion Sort algorithm.
-    
+
     Parameters
     ----------
     int_list : list
         The list of elements to be sorted.
-    
+
     Returns
     -------
     list
