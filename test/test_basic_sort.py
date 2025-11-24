@@ -155,14 +155,17 @@ def test_bubble_cpu(int_lists_dict):
     """
 
     process = psutil.Process()
-    process.cpu_percent(interval=None)  # Baseline measurement
+
+    process.cpu_percent(interval=None) # Initialize CPU counters
 
     # Run Bubble Sort on all test cases
     for case_data in int_lists_dict.values():
         bubble(case_data.copy())
 
-    cpu_used = process.cpu_percent(interval=None)
-    print(f"Total CPU usage for all Bubble Sort test cases: {cpu_used:.2f}%")
+    cpu_used = process.cpu_percent(interval=0.1) # Measure CPU usage
+    cpu_per_core = cpu_used / psutil.cpu_count() # Normalize across cores
+
+    print(f"Bubble Sort CPU usage per core: {cpu_per_core:.2f}%")
 
 
 def test_quick_runtime(int_lists_dict):
@@ -186,16 +189,21 @@ def test_quick_runtime(int_lists_dict):
         end = time.perf_counter()
         total_time += end - start
 
-    print(f"Total runtime for all Quick Sort test cases: {total_time:.6f} seconds")
+    print(f"Quick Sort runtime: {total_time:.6f} seconds")
 
 
 def test_insertion_memory(int_lists_dict):
     """
     Measure memory usage during insertion sort tests.
 
-    References:
+    Parameters
+    ----------
+    int_lists_dict : dict
+        Dictionary mapping test case names to lists of integers.
+
+    Source
+    -------
     https://psutil.readthedocs.io/en/latest/
-        and
     https://www.geeksforgeeks.org/python/
         how-to-get-current-cpu-and-ram-usage-in-python/
     """
@@ -206,4 +214,4 @@ def test_insertion_memory(int_lists_dict):
         insertion(case_data.copy())
         memory_used = memory.used / (1024**2)  # Convert to MB
 
-    print(f"Total memory used after Insertion Sort tests: {memory_used:.2f} MB")
+    print(f"Insertion Sort memory used: {memory_used:.2f} MB")

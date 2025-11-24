@@ -114,6 +114,7 @@ def insertion(int_list):
     """
     Sort a list of comparable elements in ascending order using the
     Insertion Sort algorithm.
+    
     Parameters
     ----------
     int_list : list
@@ -123,6 +124,7 @@ def insertion(int_list):
     -------
     list
         The sorted list.
+
     Source
     -------
     https://www.geeksforgeeks.org/python/python-program-for-insertion-sort/
