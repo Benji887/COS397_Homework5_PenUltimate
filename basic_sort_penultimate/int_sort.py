@@ -17,14 +17,14 @@
 # =========================================================================
 
 """
-This module sorts lists of integers using Bubble Sort, Quick Sort, and 
+This module sorts lists of integers using Bubble Sort, Quick Sort, and
 Insertion Sort.
 """
 
 
 def bubble(int_list):
     """
-    Sort a list of comparable elements in ascending order using the 
+    Sort a list of comparable elements in ascending order using the
     Bubble Sort algorithm.
 
     Parameters
@@ -62,7 +62,7 @@ def bubble(int_list):
 
 def quick(int_list):
     """
-    Sort a list of comparable elements in ascending order using the 
+    Sort a list of comparable elements in ascending order using the
     Quick Sort algorithm.
 
     Parameters
@@ -79,35 +79,35 @@ def quick(int_list):
     -------
     Adapted from https://www.geeksforgeeks.org/quick-sort/
     """
-    
+
     length = len(int_list)
-    stack = [(0, length - 1)]  #Use stack to store sublist boundaries
-    while stack: #Process each sublist until fully sorted
+    stack = [(0, length - 1)]  # Use stack to store sublist boundaries
+    while stack:  # Process each sublist until fully sorted
         low, high = stack.pop()
-        
+
         if low < high:
-            pivot = int_list[high]  #Choose pivot
+            pivot = int_list[high]  # Choose pivot
             i = low - 1
-            
-            for j in range(low, high): #Rearrange elements around the pivot
+
+            for j in range(low, high):  # Rearrange elements around the pivot
                 if int_list[j] <= pivot:
                     i += 1
                     temp = int_list[i]
                     int_list[i] = int_list[j]
                     int_list[j] = temp
-                    
-            #Place pivot in correct sorted position
+
+            # Place pivot in correct sorted position
             temp = int_list[i + 1]
             int_list[i + 1] = int_list[high]
             int_list[high] = temp
-        
-            pi = i + 1 #Pivot index
 
-            #Add left and right partitions to the stack
+            pi = i + 1  # Pivot index
+
+            # Add left and right partitions to the stack
             stack.append((low, pi - 1))
             stack.append((pi + 1, high))
-            
-    return int_list #Return sorted list
+
+    return int_list  # Return sorted list
 
 
 def insertion(int_list):

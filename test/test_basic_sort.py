@@ -33,9 +33,9 @@ from basic_sort_penultimate.int_sort import bubble, insertion, quick
 #  Fixtures
 # =========================================================================
 
+
 @pytest.fixture
 def int_lists_dict():
-    
     """
     Fixture providing a dictionary of test cases covering many classes of integer
     list scenarios.
@@ -52,14 +52,14 @@ def int_lists_dict():
         "negative-ints": [-24, -13, -90, -2, -17, -394, -1, -9],
         "repeating-positive-int": [5, 5, 61, 5, 43, 61, 61, 5],
         "repeating-negative-int": [-7, 3, -7, -7, 5, 0, -3],
-        "random-ints": np.random.randint(low=-10, high=200, size=5)
-        
+        "random-ints": np.random.randint(low=-10, high=200, size=5),
     }
 
 
 # =========================================================================
 #  Helper Functions
 # =========================================================================
+
 
 def is_sorted(int_list):
     """
@@ -75,13 +75,14 @@ def is_sorted(int_list):
     bool
         True if the list is sorted in ascending order, False otherwise.
     """
-    lst = list(int_list) # Convert NumPy array to list
+    lst = list(int_list)  # Convert NumPy array to list
     return lst == sorted(lst)
 
 
 # =========================================================================
 #  Functional Tests
-# =========================================================================  
+# =========================================================================
+
 
 def test_bubble(int_lists_dict):
     """
@@ -96,10 +97,11 @@ def test_bubble(int_lists_dict):
     -------
     The output of bubble() must be sorted for each input case.
     """
-    
+
     for test_name, data in int_lists_dict.items():
         sorted_list = bubble(data.copy())
         assert is_sorted(sorted_list), f"Bubble Sort failed on case: {test_name}"
+
 
 def test_quick(int_lists_dict):
     """
@@ -111,10 +113,11 @@ def test_quick(int_lists_dict):
     Asserts
     -------
     The output of quick() must be sorted for each input case.
-    """ 
+    """
     for test_name, data in int_lists_dict.items():
         sorted_list = quick(data.copy())
         assert is_sorted(sorted_list), f"Quick Sort failed on case: {test_name}"
+
 
 def test_insertion(int_lists_dict):
     """
@@ -134,7 +137,8 @@ def test_insertion(int_lists_dict):
 
 # =========================================================================
 #  Performance Tests
-# =========================================================================  
+# =========================================================================
+
 
 def test_bubble_cpu(int_lists_dict):
     """
@@ -160,6 +164,7 @@ def test_bubble_cpu(int_lists_dict):
     cpu_used = process.cpu_percent(interval=None)
     print(f"Total CPU usage for all Bubble Sort test cases: {cpu_used:.2f}%")
 
+
 def test_quick_runtime(int_lists_dict):
     """
     Measure runtime of Quick Sort across all provided test cases.
@@ -182,24 +187,25 @@ def test_quick_runtime(int_lists_dict):
         total_time += end - start
 
     print(f"Total runtime for all Quick Sort test cases: {total_time:.6f} seconds")
-    
+
 
 def test_insertion_memory(int_lists_dict):
     """
-    Measure memory usage during insertion sort tests.
+        Measure memory usage during insertion sort tests.
 
-    References:
-https://psutil.readthedocs.io/en/latest/
-https://www.geeksforgeeks.org/python/how-to-get-current-cpu-and-ram-usage-in-python/
+        References:
+    https://psutil.readthedocs.io/en/latest/
+    https://www.geeksforgeeks.org/python/how-to-get-current-cpu-and-ram-usage-in-python/
     """
-    memory = psutil.virtual_memory() # Get the memory details before sorting
-    print(f"Total memory available before Insertion Sort tests: {memory.available / (1024 ** 2):.2f} MB") 
+    memory = psutil.virtual_memory()  # Get the memory details before sorting
+    print(
+        f"Total memory available before Insertion Sort tests: {memory.available / (1024 ** 2):.2f} MB"
+    )
 
-    #Run insertion sort on all test cases
+    # Run insertion sort on all test cases
     for case_data in int_lists_dict.values():
         insertion(case_data.copy())
-        memory_used = memory.used / (1024 ** 2)  # Convert to MB
-    
+        memory_used = memory.used / (1024**2)  # Convert to MB
+
     print(f"Total memory used after Insertion Sort tests: {memory_used:.2f} MB")
     print(f"Percentage of memory used: {memory.percent}%")
-    
