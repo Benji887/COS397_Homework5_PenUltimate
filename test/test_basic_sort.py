@@ -231,6 +231,6 @@ def test_insertion_memory(int_lists_dict):
     stats = end_snapshot.compare_to(start_snapshot, "lineno")
     total_diff = sum(stat.size_diff for stat in stats)
 
-    memory_used = total_diff / (1024)
+    memory_used_kb = total_diff / (1024)
 
-    print(f"Insertion Sort memory allocated: {memory_used:.4f} KB")
+    print(f"Insertion Sort memory allocated: {memory_used_kb:.4f} KB")
