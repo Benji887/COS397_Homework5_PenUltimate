@@ -19,6 +19,7 @@
 
 # Standard library imports
 import time
+import tracemalloc
 
 # Third-party imports
 import numpy as np
@@ -140,39 +141,6 @@ def test_insertion(int_lists_dict):
 # =========================================================================
 
 
-# def test_bubble_cpu(int_lists_dict):
-#     """
-#     Measure CPU usage of Bubble Sort across all provided test cases.
-
-#     Parameters
-#     ----------
-#     int_lists_dict : dict
-#         Dictionary mapping test case names to lists of integers.
-
-#     Source
-#     -------
-#     References https://psutil.readthedocs.io/en/latest/
-#     """
-
-#     process = psutil.Process()
-
-#     # Record CPU time before sorting (user + system time)
-#     start_times = process.cpu_times()
-#     start_total = start_times.user + start_times.system
-
-#     # Run Bubble Sort on all test cases
-#     for case_data in int_lists_dict.values():
-#         bubble(case_data.copy())
-
-#     # Record CPU time after sorting
-#     end_times = process.cpu_times()
-#     end_total = end_times.user + end_times.system
-
-#     cpu_time_seconds = end_total - start_total
-
-#     print(f"Bubble Sort CPU time: {cpu_time_seconds:.10f} seconds")
-
-
 def test_bubble_cpu(int_lists_dict, iterations=10000):
     """
     Measure CPU usage of Bubble Sort across all provided test cases.
@@ -241,16 +209,28 @@ def test_insertion_memory(int_lists_dict):
 
     Source
     -------
-    https://psutil.readthedocs.io/en/latest/
-    https://www.geeksforgeeks.org/python/
-        how-to-get-current-cpu-and-ram-usage-in-python/
+    https://docs.python.org/3/library/tracemalloc.html
+
+    Notes
+    -------
+    psutil kept returning 0 bytes, so we used tracemalloc instead to measure
+    Python-level allocations
     """
-    memory = psutil.virtual_memory()  # Get the memory details before sorting
+
+    tracemalloc.start()  # Start tracking memory allocations
+
+    start_snapshot = tracemalloc.take_snapshot()  # Snapshot before
 
     # Run insertion sort on all test cases
     for case_data in int_lists_dict.values():
         insertion(case_data.copy())
-    
-    memory_used = memory.used / (1024**2)  # Convert to MB
 
-    print(f"Insertion Sort memory used: {memory_used:.2f} MB")
+    end_snapshot = tracemalloc.take_snapshot()  # Snapshot after
+
+    # Compute total memory difference in KB
+    stats = end_snapshot.compare_to(start_snapshot, "lineno")
+    total_diff = sum(stat.size_diff for stat in stats)
+
+    memory_used = total_diff / (1024)
+
+    print(f"Insertion Sort memory allocated: {memory_used:.4f} KB")
