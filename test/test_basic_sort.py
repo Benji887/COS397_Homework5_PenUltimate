@@ -250,6 +250,7 @@ def test_insertion_memory(int_lists_dict):
     # Run insertion sort on all test cases
     for case_data in int_lists_dict.values():
         insertion(case_data.copy())
-        memory_used = memory.used / (1024**2)  # Convert to MB
+    
+    memory_used = memory.used / (1024**2)  # Convert to MB
 
     print(f"Insertion Sort memory used: {memory_used:.2f} MB")
