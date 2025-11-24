@@ -39,7 +39,7 @@ def bubble(int_list):
 
     Source
     -------
-    Adapted from https://https://www.w3schools.com/python/python_dsa_bubblesort.asp
+    Adapted from https://www.w3schools.com/python/python_dsa_bubblesort.asp
     """
 
     length = len(int_list)  # Length of the list
@@ -112,8 +112,20 @@ def quick(int_list):
 
 def insertion(int_list):
     """
-    insertion docstring
-    adapted from https://www.geeksforgeeks.org/python/python-program-for-insertion-sort/
+    Sort a list of comparable elements in ascending order using the
+    Insertion Sort algorithm.
+    Parameters
+    ----------
+    int_list : list
+        The list of elements to be sorted.
+    
+    Returns
+    -------
+    list
+        The sorted list.
+    Source
+    -------
+    https://www.geeksforgeeks.org/python/python-program-for-insertion-sort/
     """
     length = len(int_list)
     for i in range(1, length):

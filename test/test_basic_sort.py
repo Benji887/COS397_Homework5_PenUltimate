@@ -198,9 +198,6 @@ def test_insertion_memory(int_lists_dict):
     https://www.geeksforgeeks.org/python/how-to-get-current-cpu-and-ram-usage-in-python/
     """
     memory = psutil.virtual_memory()  # Get the memory details before sorting
-    #print(
-    #    f"Total memory available before Insertion Sort tests: {memory.available / (1024 ** 2):.2f} MB"
-    #)
 
     # Run insertion sort on all test cases
     for case_data in int_lists_dict.values():
