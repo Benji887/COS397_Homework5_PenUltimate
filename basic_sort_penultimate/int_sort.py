@@ -46,10 +46,8 @@ def bubble(int_list):
 
     # Loop through all elements in the list
     for i in range(length):
-
         # Loop through remaining unsorted elements
         for j in range(0, length - i - 1):
-
             # Swap elements if they are in descending order
             if int_list[j] > int_list[j + 1]:
                 temp = int_list[j]

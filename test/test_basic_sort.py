@@ -172,6 +172,7 @@ def test_insertion(int_lists_dict):
 
 #     print(f"Bubble Sort CPU time: {cpu_time_seconds:.10f} seconds")
 
+
 def test_bubble_cpu(int_lists_dict, iterations=10000):
     """
     Measure CPU usage of Bubble Sort across all provided test cases.
