@@ -189,8 +189,8 @@ def test_insertion_memory(int_lists_dict):
     Measure memory usage during insertion sort tests.
 
     References:
-    https://psutil.readthedocs.io/en/latest/
-    https://www.geeksforgeeks.org/python/how-to-get-current-cpu-and-ram-usage-in-python/
+https://psutil.readthedocs.io/en/latest/
+https://www.geeksforgeeks.org/python/how-to-get-current-cpu-and-ram-usage-in-python/
     """
     memory = psutil.virtual_memory() # Get the memory details before sorting
     print(f"Total memory available before Insertion Sort tests: {memory.available / (1024 ** 2):.2f} MB") 
