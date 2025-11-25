@@ -48,26 +48,26 @@ If after entering "pip install pre-commit" you are not able to run the command "
 
 ## Test Output
 
-## Bubble Sort CPU Time
-                  Python 3.9      |      Python 3.10
-Ubuntu    |    0.000036 seconds   |    0.000033 seconds
+# Bubble Sort CPU Time
 
-Windows   |    0.000027 seconds   |    0.000030 seconds
+| OS      | Python 3.9           | Python 3.10          |
+|---------|--------------------|--------------------|
+| Ubuntu  | 0.000036 seconds     | 0.000033 seconds    |
+| Windows | 0.000027 seconds     | 0.000030 seconds    |
+| macOS   | 0.000031 seconds     | 0.000034 seconds    |
 
-macos     |    0.000031 seconds   |    0.000034 seconds
+# Quick Sort Runtime
 
-## Quick Sort Runtime
-                  Python 3.9      |      Python 3.10
-Ubuntu    |    0.000066 seconds   |    0.000062 seconds
+| OS      | Python 3.9           | Python 3.10          |
+|---------|--------------------|--------------------|
+| Ubuntu  | 0.000066 seconds     | 0.000062 seconds    |
+| Windows | 0.000060 seconds     | 0.000062 seconds    |
+| macOS   | 0.000046 seconds     | 0.000044 seconds    |
 
-Windows   |    0.000060 seconds   |    0.000062 seconds
+# Insertion Sort Memory Allocated
 
-macos     |    0.000046 seconds   |    0.000044 seconds
-
-## Insertion Sort Memory Allocated
-                  Python 3.9      |      Python 3.10
-Ubuntu    |    1.1250 KB          |       1.1094 KB
-
-Windows   |    1.1250 KB          |       1.1094 KB
-
-macos     |    1.1250 KB          |       1.1094 KB
+| OS      | Python 3.9           | Python 3.10          |
+|---------|--------------------|--------------------|
+| Ubuntu  | 1.1250 KB            | 1.1094 KB           |
+| Windows | 1.1250 KB            | 1.1094 KB           |
+| macOS   | 1.1250 KB            | 1.1094 KB           |
