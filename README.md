@@ -48,7 +48,7 @@ If after entering "pip install pre-commit" you are not able to run the command "
 
 ## Test Output
 
-# Bubble Sort CPU Time
+### Bubble Sort CPU Time
 
 | OS      | Python 3.9           | Python 3.10          |
 |---------|--------------------|--------------------|
@@ -56,7 +56,7 @@ If after entering "pip install pre-commit" you are not able to run the command "
 | Windows | 0.000027 seconds     | 0.000030 seconds    |
 | macOS   | 0.000031 seconds     | 0.000034 seconds    |
 
-# Quick Sort Runtime
+### Quick Sort Runtime
 
 | OS      | Python 3.9           | Python 3.10          |
 |---------|--------------------|--------------------|
@@ -64,7 +64,7 @@ If after entering "pip install pre-commit" you are not able to run the command "
 | Windows | 0.000060 seconds     | 0.000062 seconds    |
 | macOS   | 0.000046 seconds     | 0.000044 seconds    |
 
-# Insertion Sort Memory Allocated
+### Insertion Sort Memory Allocated
 
 | OS      | Python 3.9           | Python 3.10          |
 |---------|--------------------|--------------------|
