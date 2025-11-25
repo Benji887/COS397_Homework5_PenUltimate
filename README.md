@@ -10,6 +10,8 @@
 
 Once repo is cloned in your environment, run "pip install pre-commit" to install the python package, then run "pre-commit install" to read the pre commit file and set up the Git hooks. After that, the hooks should be active. You can manually trigger the checks on all files by running "pre-commit run --all-files".
 
+If after entering "pip install pre-commit" you are not able to run the command "pre-commit install". Enter "python -m pre_commit run --all-files".
+
 ## Steps to Run Sorting Algorithm Tests
 
 -Ensure you are entering commands from the root of the project directory "COS397_Homework5_PenUltimate".
