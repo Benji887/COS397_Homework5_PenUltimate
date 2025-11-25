@@ -16,9 +16,9 @@ If after entering "pip install pre-commit" you are not able to run the command "
 
 -Ensure you are entering commands from the root of the project directory "COS397_Homework5_PenUltimate".
 
--Download all libraries and packages located in the "requirements.txt" file. Using "pip install ______".
+-Download all required libraries and packages using "pip install -r requirements.txt"
 
--Enter "python -m pytest -s" command.
+-Enter "python -m pytest -s" to run the tests.
 
 ## File Description
 
